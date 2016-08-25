@@ -139,6 +139,24 @@
 \usepackage{array}
 
 %%%
+%%% Package to create Gantt schedules
+%%%
+\usepackage{pgfgantt}
+
+%%%
+%%% PDF Landscape package for pdflatex
+%%%
+\usepackage{pdflscape}
+
+%%%
+%%% Formatting urls
+%%%
+\usepackage{url}
+\urlstyle{rm}
+
+
+
+%%%
 %% A few new commands to handle some frequently used symbols.
 %%%
 % I work with temperatures, approximations, and Mars a lot, alright?
@@ -187,7 +205,7 @@
 %\noindent \textbf{Biographical Sketch} \newline
 %\noindent \textbf{Current and Pending} \newline
 %\noindent \textbf{SwRI Budget Justification} \newline
-\noindent \textbf{Budget Detail} \newline
+\noindent \textbf{Budget Detail, Redacted} \newline
 
 \thispagestyle{empty}
 
@@ -209,30 +227,25 @@
 \section{Science/Technical/Management}
 
 \subsection{Objectives and Significance}\label{s:1}
-Your well reasoned and articulate plea for funding for you awesome and potentially Earth-shattering research (literally for you seismo guys!). This introduction should lead into the Key Science Objectives box.
-\newline
-\newline
-\fcolorbox{light-blue}{light-blue!30}{\begin{minipage}{0.98\textwidth}
-\begin{tightcenter}
-\textsf{\textbf{SCIENCE OBJECTIVES.}}
-\end{tightcenter} 
-\textsf{
-\begin{itemize}[leftmargin=0.1cm,itemindent=0.3cm,labelwidth=\itemindent,labelsep=0cm,align=left]
-\item[\textbf{Objective 1: }] Test the hypothesis that blah blah blah.
-%    \begin{itemize}
-%    \item[Q: ] Why does blah blah blah do whatchyamacallit?
-%    \item[Q: ] How long does it take whatchyamacallit to evolve?
-%    \end{itemize}
-\item[ ]
-\item[\textbf{Objective 2: }] Investigate the possible something-or-others.
-%    \begin{itemize}
-%    \item[Q: ] How does whatchyamacallit vary with something-or-others?
-%    \item[Q: ] Is whatchyamacallit sensitive to that thing, you know... that thing?
-%    \end{itemize}
-\end{itemize}
-}%
+\begin{center}
+\fcolorbox{light-blue}{light-blue!30}{\begin{minipage}{0.95\textwidth}
+\textbf{Science:} The science goals for this project are: (1) measure something awesome, (2) measure an even more awesome thing, (3) theorize like a boss, and (4) drop the mic, on the surface of another planet. With all this, how can anything go wrong?!?.
+
+\textbf{Objective:} The above stuff, but with more cow bell.
+
+\smallskip
+\textbf{Uniqueness:} My proposal is a unique and special butterfly; treat it carefully. The proposal is a leaf in the wind; watch how it soars.
+
+\smallskip
+\textbf{Approach:} Everyone likes to talk about tools.
+
+\smallskip
+\textbf{Relevance:} Here's why NASA will regret not funding this project. 
+
 \end{minipage}}
-\medskip
+\end{center}
+
+Your well reasoned and articulate plea for funding for you awesome and potentially Earth-shattering research (literally for you seismo guys!). 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -267,7 +280,6 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 \end{minipage}}
 %\medskip
 
-\subsection{Impact of proposed work}
 
 \subsection{Technical approach and methodology}
 
@@ -305,11 +317,76 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 \vspace{-0.75em}
 \end{table}
 
+\begin{figure}[tbh!]
+\begin{center}
+\definecolor{linkred}{RGB}{165,0,33}
+\begin{ganttchart}[vgrid, x unit=1.1cm, y unit title=0.6cm, y unit chart=0.8cm,
+  title label font=\footnotesize,
+  bar label font=\footnotesize, 
+  milestone label font=\footnotesize,
+  bar/.append style={fill=blue!75},
+  milestone/.append style={fill=blue!75},
+  link/.append style=blue,
+  %milestone height=.4, 
+  %milestone left shift=.2, 
+  %milestone right shift=-.4,
+  milestone inline label node/.append style={right=4mm}
+]{1}{12}
+%
+% \gantttitle{Hura Development Schedule}{36} \\
+% \gantttitlelist{2017,2018,2019}{12}\\
+  \gantttitle{Year 1}{4}
+  \gantttitle{Year 2}{4}
+  \gantttitle{Year 3}{4}  \\
+  \gantttitlelist{1,...,4}{1}  \gantttitlelist{1,...,4}{1}  \gantttitlelist{1,...,4}{1} \\
+  \ganttbar{Task 1}{1}{2} \\
+  \ganttmilestone[inline]{Label}{2} \\
+  \ganttbar{Task 2}{3}{3.5} \\
+  \ganttmilestone[inline, milestone inline label node/.append style={right=5mm}]{Label}{3.5} \\
+  \ganttbar{Task 3}{4}{4} \\
+  \ganttbar{Task 4}{4}{5} \\
+  \ganttmilestone[inline]{Label}{5} \\
+  \ganttbar{Task 5}{6}{9} \\
+  \ganttmilestone[inline, milestone inline label node/.append style={left=5mm}]{Label}{9} \\
+  \ganttbar{Task 6}{10}{11} \\
+  \ganttbar[bar/.append style={fill=black!50}]{Task 7}{2}{9} \\
+  \ganttmilestone[inline, milestone inline label node/.append style={left=9mm}, milestone/.append style={fill=black!50}]{Label}{9} \\
+  \ganttmilestone[inline, milestone inline label node/.append style={left=9mm}]{Label}{11} \\
+  \ganttbar{Final report}{12}{12} \\
+  \ganttmilestone[inline, milestone inline label node/.append style={left=5mm}]{Label}{12} 
+  \ganttlink{elem0}{elem2}
+  \ganttlink{elem2}{elem4}
+  \ganttlink{elem2}{elem5}
+  \ganttlink{elem4}{elem7}
+  \ganttlink{elem5}{elem7}
+  \ganttlink{elem7}{elem9}
+  \ganttlink{elem9}{elem12}
+  \ganttlink{elem12}{elem13}
+  \ganttlink[link/.append style=black]{elem10}{elem11}
+  \ganttlink[link/.append style=black]{elem11}{elem13}
+%  \node (a) [anchor=south] at (current bounding box.south){};
+%  \node (b) [anchor=south] at ([yshift=-25pt]a.south){\footnotesize \emph{Task 1:} label};
+%  \node (c) [anchor=south] at ([yshift=-15pt,xshift=15pt]b.south){\footnotesize  \emph{Task 2:} label};
+%  \node (d) [anchor=south] at ([yshift=-15pt,xshift=25pt]c.south){\footnotesize   \emph{Task 3:} label};
+%  \node (e) [anchor=south] at ([yshift=-15pt,xshift=-27pt]d.south){\footnotesize  \emph{Task 4:} Label};
+%  \node (f) [anchor=south] at ([yshift=-15pt,xshift=-31pt]e.south){\footnotesize  \emph{Task 5:} Label };
+%  \node (g) [anchor=south] at ([yshift=-15pt,xshift=8pt]f.south){\footnotesize  \emph{Task 6:} Label};
+%  \node (h) [anchor=south] at ([yshift=-15pt,xshift=-20pt]g.south){\footnotesize  \emph{Task 7:} Label};
+\end{ganttchart}
+\caption{Our development schedule, in a manager-friendly Gantt format.}\label{f:sched}
+\end{center}
+\end{figure}
+
+
+
+
 
 \subsection{Resources}
 
 
-
+\subsection{Impact and Relevance}
+\subsubsection{Impact of proposed work}\label{ssec:Impact}
+\subsubsection{Relevance to NASA Goals}\label{ssec:Relevance}
 
 
 \newpage
@@ -328,6 +405,15 @@ From Section 2.3.7 of NASA's \emph{Guidebook for Proposers}, the Biographical Sk
 \subsection{Co-Investigator}
 
 \newpage
+\section{Current and Pending}
+From Section 2.3.8 of NASA's \emph{Guidebook for Proposers}, the Current and Pending  section is described as: ``Information must be provided for all ongoing and pending projects and proposals that involve the proposing PI. This information is also required for any Co-Is who are proposed to perform a significant share (>10 percent) of the proposed work.''
+
+\subsection{Principal Investigator}
+
+\newpage
+\subsection{Co-Investigator}
+
+\newpage
 \section{Table of Personnel and Work Effort}
 Summary of work effort: This is a new fifth section of the proposal. [Note, location differs from and supersedes that given in Guidebook. [Clarified May 12, 2015]
 
@@ -338,38 +424,23 @@ Summary of work effort: This is a new fifth section of the proposal. [Note, loca
 \item[\textbf{Required: }] Planned work commitment (e.g., in fractions of a work year) that will not be funded by NASA, if any. Note: time commitment included here that is not funded by NASA is not considered cost sharing, as defined in 2 CFR § 215.23.
 \end{itemize}
 
-\newpage
-\section{Current and Pending}
-From Section 2.3.8 of NASA's \emph{Guidebook for Proposers}, the Current and Pending  section is described as: ``Information must be provided for all ongoing and pending projects and proposals that involve the proposing PI. This information is also required for any Co-Is who are proposed to perform a significant share (>10 percent) of the proposed work.''
 
-\subsection{Principal Investigator}
-
-\newpage
-\subsection{Co-Investigator}
-
-\newpage
-\section{Statements of Commitment and Letters of Support}
-\emph{If necessary.}
-\newline
-\newline
-From Section 2.3.9 of NASA's \emph{Guidebook for Proposers}, the Commitment and Support section is described as: 
-\begin{quote}
-``Every Co-PI, Co-I, and Collaborator (ref. definitions in Section 1.4.2) identified as a participant on the proposal's cover page and/or in the proposal's Scientific/Technical/ Management Section must acknowledge his/her intended participation in the proposed effort.''
-
-``The NSPIRES proposal management system allows for participants named on the Proposal Cover Page to acknowledge electronically a statement of commitment. Although we prefer all team members to confirm participation via NSPIRES, if that is not possible the inclusion of a statement of commitment in the proposal as set out in the example below may be permitted instead.''
-\end{quote}
+%\newpage
+%\section{Statements of Commitment and Letters of Support}
+%\emph{If necessary.}
+%\newline
+%\newline
+%From Section 2.3.9 of NASA's \emph{Guidebook for Proposers}, the Commitment and Support section is described as: 
+%\begin{quote}
+%``Every Co-PI, Co-I, and Collaborator (ref. definitions in Section 1.4.2) identified as a participant on the proposal's cover page and/or in the proposal's Scientific/Technical/ Management Section must acknowledge his/her intended participation in the proposed effort.''
+%
+%``The NSPIRES proposal management system allows for participants named on the Proposal Cover Page to acknowledge electronically a statement of commitment. Although we prefer all team members to confirm participation via NSPIRES, if that is not possible the inclusion of a statement of commitment in the proposal as set out in the example below may be permitted instead.''
+%\end{quote}
 
 \newpage
 \restorevalues
-\section{Budget Justification}
+\section{Budget Justification and Narrative}
 \textbf{Science Proposal Budget Notes and Institutional Contributions at Southwest Research Institute.} See Sections 2.3.10 to 2.3.13 of NASA's \emph{Guidebook for Proposers} for details on these portions of the proposal.
-
-\subsection{Budget Narrative}
-
-
-\subsection{Subcontracting Plans}
-
-
 
 % This line gets the space in TOC right.
 \addtocontents{toc}{\protect\vspace{12pt}}
