@@ -1,0 +1,377 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+%%%
+%% Needed for fonts in xelatex to work
+%%%
+% NOTE: I actually use XeLaTeX, which allows me to get the fonts 
+% exactly the way that I want them. For proposals, this means
+% I can use Times New Roman instead of the default Computer
+% Modern. I actually like Computer Modern, but since Times New
+% Roman is standard, there's no point in throwing off a reviewer
+% with an unexpected font, particularly one with such a 
+% polarizing reaction in readers. New upset the reviewrers, I 
+% always say.
+%
+% What's the point of this bit of rambling? If you do not want to use
+% XeLaTeX and would rather stick to good old LaTeX, then you
+% need to comment out the next few lines of font packages and
+% font commands.
+%
+% If you want to use XeLaTeX but want different fonts, then you
+% just need to change the name in the argument for \setmainfont
+% and \setsansfont. Make sure that the font you use is loaded on
+% your machine and your TeX distribution knows how to find it.
+% See Google if you need to learn more about this.
+%
+\usepackage{fontspec}
+\usepackage{xunicode}
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont[Mapping=tex-text,Color=000]{Optima}
+
+
+%%%
+%% Packages that I use on a regular basis.
+%%%
+% Of course, you are likely to need some math typesetting so these 
+% three packages have you covered.
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+% I use color, graphicx, and epstopdf to read in PDFs for my figures.
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+% I don't remember why threeparttable and setspace is here. Inertia.
+\usepackage{threeparttable}
+\usepackage{setspace}
+
+%%%
+%% Some packages to handle the figures and captions
+%%%
+\usepackage[labelfont=bf]{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+%%%
+%% Packages and settings for my bibliography.
+%%%
+% apa_with_doi is a style I created to keep DOI in the bibliography
+% but strip out URLs. There are a lot of other styles you can 
+% find for natbib. Again, Google is your friend.
+% Author name and year references, i.e., Author (year):
+%\usepackage{natbib}
+%\bibliographystyle{apa_with_doi}
+% Numbered references:
+\usepackage[numbers,super]{natbib}
+\bibliographystyle{unsrtnat}
+
+
+%%%
+%% Packages and commands to build my table of contents (TOC).
+%%%
+%% The trick was getting the References included proporly.
+%% Also, some of my table of contents entry have no page number
+%% because those pages are generated separately by my institute.
+%% Nothing to be done about that. You may or may not have the
+%% same problem, so you may or may not have to tweak this.
+\usepackage[nottoc,numbib]{tocbibind}
+\renewcommand{\tocbibname}{References}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+%%%
+%% These commands get the spacing around the title and section titles right.
+%%%
+% I tightened up the spacing. The LaTeX default is just too roomy.
+% This spacing is still clean and legible, just not so free with the
+% whitespace between sections.
+%
+% First the title.
+\usepackage{titling}
+\setlength{\droptitle}{-50pt}
+\pretitle{\begin{center}\Large\bfseries\vspace{0ex}}%
+\posttitle{\end{center}\Large\vspace{-2ex}}%
+\preauthor{\begin{center}\large}%
+\postauthor{\end{center}\large\vspace{-3ex}}%
+\predate{\begin{center}\large}%q
+\postdate{\end{center}\large\vspace{-6ex}}%
+% Now the section headings.
+\usepackage[noindentafter]{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{18pt plus 2pt minus 2pt}{4pt plus 2pt minus 2pt}[0pt]
+\titlespacing{\subsection}{0pt}{16pt plus 2pt minus 2pt}{4pt plus 2pt minus 2pt}[0pt]
+\titlespacing{\subsubsection}{0pt}{14pt plus 2pt minus 2pt}{4pt plus 2pt minus 2pt}[0pt]
+
+%%%
+%% These commands get the lists to work the way that I want therm to.
+%%%
+% i.e. I want less space wrapping around the list.
+\usepackage{enumitem}
+\setlist{nolistsep}
+\setlist[2]{noitemsep} 
+\setlist[1]{noitemsep} 
+
+%%%
+%% For my box title, I wanted it centered w/o too much space around.
+%%%
+\newenvironment{tightcenter}{%
+  \setlength\topsep{0pt}
+  \setlength\parskip{0pt}
+  \begin{center}
+}{%
+  \end{center}
+}
+
+%%%
+%% Commands for the boxes.
+%%%
+% To highlight key points, I use a box with some subtle color.
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\definecolor{light-blue}{HTML}{99CCFF} % That's blue.
+\definecolor{light-gray}{gray}{0.95}
+
+%%%
+%% Commands for making the tables.
+%%%
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+
+%%%
+%% A few new commands to handle some frequently used symbols.
+%%%
+% I work with temperatures, approximations, and Mars a lot, alright?
+\newcommand{\cotwo}{\hbox{CO$_{2}$ }}     % CO2
+\newcommand{\degree}{^{\circ}}     % degrees
+\newcommand{\simmod}{\raise.17ex\hbox{$\scriptstyle\sim$}}     % tilde
+\newcolumntype{L}{>{\arraybackslash}m{2.6in}}
+\newcolumntype{Q}{>{\centering\arraybackslash}m{0.25in}}
+\newcolumntype{S}{>{\centering\arraybackslash}m{0.78in}}
+\newcolumntype{T}{>{\centering\arraybackslash}m{0.5in}}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+\usepackage{lineno}
+
+%% In order to have a caption to the side of a figure or table, use the
+%% 'sidecap' package.
+\usepackage[rightcaption]{sidecap}
+\sidecaptionvpos{figure}{t}
+
+%% For more control of the enumeration environment (lists with numbers)
+%% use the enumitem package.
+%\usepackage{enumitem}
+
+%% Also, to reset the numbering of enumerate, use the following:
+%\setenumerate[0]{label=\alph*.}
+
+% To deal with figures all alone on a page.
+\renewcommand{\floatpagefraction}{.8}%
+
+% To use symbols for the footnotes:
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%% Finally, we get to the document.
+\begin{document}
+\title{Clever, accurate, but not sophomoric title.  \\ {\normalsize \textit{ A scientific investigation proposal to the Some Government Program}}}
+\author{Dr. Me, Myself, and I, Principal Investigator\\Dr. Someone Else, Trusty Sidekick} 
+% This date field is blank becauseI usually don't put a date. It's not necessary and it's usually the wrong one.
+\date{} 
+\maketitle
+
+% First, let's get that TOC in there. NASA likes it. 
+\tableofcontents 
+% These next items will have no pages attached. Trust me, it's alright.
+%\noindent \textbf{Biographical Sketch} \newline
+%\noindent \textbf{Current and Pending} \newline
+%\noindent \textbf{SwRI Budget Justification} \newline
+\noindent \textbf{Budget Detail} \newline
+
+\thispagestyle{empty}
+
+% Let's leave this TOC alone on this page and start a new one for
+% proposal body.
+\newpage
+
+% Let's reset the page counter. This way the title/table-of-contents page is not included in the page numbering.
+\setcounter{page}{1} 
+
+\newcommand{\keepvalues}{%
+  \edef\restorevalues{%
+    \parindent=\the\parindent
+    \parskip=\the\parskip
+  }%
+}
+
+
+\section{Science/Technical/Management}
+
+\subsection{Objectives and Significance}\label{s:1}
+Your well reasoned and articulate plea for funding for you awesome and potentially Earth-shattering research (literally for you seismo guys!). This introduction should lead into the Key Science Objectives box.
+\newline
+\newline
+\fcolorbox{light-blue}{light-blue!30}{\begin{minipage}{0.98\textwidth}
+\begin{tightcenter}
+\textsf{\textbf{SCIENCE OBJECTIVES.}}
+\end{tightcenter} 
+\textsf{
+\begin{itemize}[leftmargin=0.1cm,itemindent=0.3cm,labelwidth=\itemindent,labelsep=0cm,align=left]
+\item[\textbf{Objective 1: }] Test the hypothesis that blah blah blah.
+%    \begin{itemize}
+%    \item[Q: ] Why does blah blah blah do whatchyamacallit?
+%    \item[Q: ] How long does it take whatchyamacallit to evolve?
+%    \end{itemize}
+\item[ ]
+\item[\textbf{Objective 2: }] Investigate the possible something-or-others.
+%    \begin{itemize}
+%    \item[Q: ] How does whatchyamacallit vary with something-or-others?
+%    \item[Q: ] Is whatchyamacallit sensitive to that thing, you know... that thing?
+%    \end{itemize}
+\end{itemize}
+}%
+\end{minipage}}
+\medskip
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+% An example figure. Use wrapfigure at your peril. No really, stick to figure and just write less.
+%
+%\begin{figure}
+%\centering
+%\noindent\includegraphics[width=0.4\textwidth]{some_fig}
+%\caption{Caption time.}\label{f:some_fig}
+%\end{figure}
+%
+%%\begin{wrapfigure}[23]{r}{0.5\textwidth}
+%\centering
+%\noindent\includegraphics[width=0.4\textwidth]{some_fig}
+%\caption{Caption time.}\label{f:some_fig}
+%%\end{wrapfigure}
+%
+
+
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+%\subsection{The Significance of Understanding our cool work}
+\newline
+\newline
+\fcolorbox{light-blue}{light-blue!30}{\begin{minipage}{0.98\textwidth}
+\begin{tightcenter}
+\textsf{\textbf{Significance to Such-and-Such Research}}
+\end{tightcenter} 
+\textsf{I now put the significance section in a box, instead of a subsection, in order to highlight its importance as well as break up the word-dominated first few pages.
+}%
+\bigskip
+\end{minipage}}
+%\medskip
+
+\subsection{Impact of proposed work}
+
+\subsection{Technical approach and methodology}
+
+
+\subsubsection{Introduction to Methodology}
+
+\subsubsection{Science Question 1}
+
+\subsubsection{Science Question 2}
+
+\subsubsection{Science Question 3}
+
+
+
+
+
+%\subsection{Relevance of proposed work}
+
+
+\subsection{Personnel Roles \& Work Plan}
+\begin{table}[h!]
+\centering
+\rowcolors{2}{white}{light-blue!30}
+\begin{tabular}{ Q L S S T T } 
+\toprule
+\textbf{Year} & \textbf{Task} & \textbf{\# coupled sims} & \textbf{\# evolution sims} & \textbf{Hours: Soto} & \textbf{Hours: Wood}\\ 
+\hline
+1 & Model the dynamical coupling between the atmosphere and the porosphere. & ? & ? & 736 & 607\\ 
+2 & Model the dynamics that control the burial of carbon dioxide ice. & ? & ? &  607 & 607\\ 
+3 & Model the evolution of Martian climate during the recent Amazonian. & ? & ? & 460 & 607\\ 
+\bottomrule
+\end{tabular}
+\caption{\emph{\textbf{Each year of the investigation, we will perform one of the tasks described in Section~\ref{s:technical}.}}}
+\label{plan_table}
+\vspace{-0.75em}
+\end{table}
+
+
+\subsection{Resources}
+
+
+
+
+
+\newpage
+\section{References}
+% Here's how I get references.
+\bibliography{/location/of/your/bibliography/}
+
+\keepvalues
+\newpage
+\section{Biographical Sketches}
+From Section 2.3.7 of NASA's \emph{Guidebook for Proposers}, the Biographical Sketches  section is described as: ``The PI (and Co-PI) must include a biographical sketch (not to exceed two pages) that includes his/her professional experiences and positions and a bibliography of recent publications, especially those relevant to the proposed investigation. A one-page sketch for each Co-Investigator must also be included (Note: Any Co-I also serving in one of the three special Co-I categories defined in Section 1.4.2 may use the same two-page limit as for the PI). For the PI and any Co-Is who are required to provide Current and Pending Support information (ref. Section 2.3.8), the biographical sketch must include a description of scientific, technical and management performance on relevant prior research efforts. Those participants who will play critical management or technical roles in the proposed investigation should demonstrate that their qualifications, capabilities, and experience are appropriate to provide confidence that the proposed objectives will be achieved.''
+
+\subsection{Principal Investigator}
+
+\newpage
+\subsection{Co-Investigator}
+
+\newpage
+\section{Table of Personnel and Work Effort}
+Summary of work effort: This is a new fifth section of the proposal. [Note, location differs from and supersedes that given in Guidebook. [Clarified May 12, 2015]
+
+\begin{itemize}[leftmargin=0.1cm,itemindent=0.3cm,labelwidth=\itemindent,labelsep=0cm,align=left]
+\item[\textbf{General: }] Note this table has been moved from the budget Section. \item[\textbf{Required: }] Where names are not known, include the position, such as postdoctoral fellow or technician.
+\item[\textbf{Required: }] Names and/or titles of all personnel to perform the proposed effort
+\item[\textbf{Required: }] Planned work commitment (e.g., in fractions of a work year) to be funded by NASA
+\item[\textbf{Required: }] Planned work commitment (e.g., in fractions of a work year) that will not be funded by NASA, if any. Note: time commitment included here that is not funded by NASA is not considered cost sharing, as defined in 2 CFR § 215.23.
+\end{itemize}
+
+\newpage
+\section{Current and Pending}
+From Section 2.3.8 of NASA's \emph{Guidebook for Proposers}, the Current and Pending  section is described as: ``Information must be provided for all ongoing and pending projects and proposals that involve the proposing PI. This information is also required for any Co-Is who are proposed to perform a significant share (>10 percent) of the proposed work.''
+
+\subsection{Principal Investigator}
+
+\newpage
+\subsection{Co-Investigator}
+
+\newpage
+\section{Statements of Commitment and Letters of Support}
+\emph{If necessary.}
+\newline
+\newline
+From Section 2.3.9 of NASA's \emph{Guidebook for Proposers}, the Commitment and Support section is described as: 
+\begin{quote}
+``Every Co-PI, Co-I, and Collaborator (ref. definitions in Section 1.4.2) identified as a participant on the proposal's cover page and/or in the proposal's Scientific/Technical/ Management Section must acknowledge his/her intended participation in the proposed effort.''
+
+``The NSPIRES proposal management system allows for participants named on the Proposal Cover Page to acknowledge electronically a statement of commitment. Although we prefer all team members to confirm participation via NSPIRES, if that is not possible the inclusion of a statement of commitment in the proposal as set out in the example below may be permitted instead.''
+\end{quote}
+
+\newpage
+\restorevalues
+\section{Budget Justification}
+\textbf{Science Proposal Budget Notes and Institutional Contributions at Southwest Research Institute.} See Sections 2.3.10 to 2.3.13 of NASA's \emph{Guidebook for Proposers} for details on these portions of the proposal.
+
+\subsection{Budget Narrative}
+
+
+\subsection{Subcontracting Plans}
+
+
+
+% This line gets the space in TOC right.
+\addtocontents{toc}{\protect\vspace{12pt}}
+
+\end{document}
