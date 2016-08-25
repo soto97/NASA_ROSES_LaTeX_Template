@@ -1,0 +1,36 @@
+# # # Files to ignore in this proposal LaTeX repository:
+
+# Stupid MacOSX files that I can not get rid of.
+.DS_store
+
+# Files specific to this project
+proposal_template_test.*
+*.xlsx
+*.doc
+
+# Standard LaTeX files created during typesetting:
+*.pdf
+*.spl
+*.aux
+*.bbl
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.blg
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz
