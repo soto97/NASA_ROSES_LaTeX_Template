@@ -1,3 +1,4 @@
+%!TEX TS-program = XeLaTeX
 \documentclass[12pt]{article}
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 
@@ -193,19 +194,24 @@
 
 %% Finally, we get to the document.
 \begin{document}
-\title{Clever, accurate, but not sophomoric title.  \\ {\normalsize \textit{ A scientific investigation proposal to the Some Government Program}}}
+\title{Clever, accurate, but not sophomoric title.}
 \author{Dr. Me, Myself, and I, Principal Investigator\\Dr. Someone Else, Trusty Sidekick} 
 % This date field is blank becauseI usually don't put a date. It's not necessary and it's usually the wrong one.
 \date{} 
 \maketitle
 
 % First, let's get that TOC in there. NASA likes it. 
+%\renewcommand{\contentsname}{Science/Technical/Management}
+\setcounter{tocdepth}{3}
 \tableofcontents 
 % These next items will have no pages attached. Trust me, it's alright.
-%\noindent \textbf{Biographical Sketch} \newline
-%\noindent \textbf{Current and Pending} \newline
-%\noindent \textbf{SwRI Budget Justification} \newline
-\noindent \textbf{Budget Detail, Redacted} \newline
+\noindent \textbf{Additional content:} \newline
+%\indent Biographical Sketch \newline
+%\indent Table of Work Effort \newline
+\indent Current and Pending \newline
+%\indent Letter of Commitment \newline
+\indent Budget Justification \& Narrative \newline
+%\noindent \textbf{Budget Detail, Redacted} \newline
 
 \thispagestyle{empty}
 
@@ -224,9 +230,8 @@
 }
 
 
-\section{Science/Technical/Management}
+\section{Science Motivation and Objectives}
 
-\subsection{Objectives and Significance}\label{s:1}
 \begin{center}
 \fcolorbox{light-blue}{light-blue!30}{\begin{minipage}{0.95\textwidth}
 \textbf{Science:} The science goals for this project are: (1) measure something awesome, (2) measure an even more awesome thing, (3) theorize like a boss, and (4) drop the mic, on the surface of another planet. With all this, how can anything go wrong?!?.
@@ -267,39 +272,56 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 
 
 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-%\subsection{The Significance of Understanding our cool work}
-\newline
-\newline
-\fcolorbox{light-blue}{light-blue!30}{\begin{minipage}{0.98\textwidth}
+
+\begin{center}
+\fcolorbox{light-blue}{light-blue!30}{\begin{minipage}{0.95\textwidth}
+%\textbf{Goal:} 
 \begin{tightcenter}
-\textsf{\textbf{Significance to Such-and-Such Research}}
+  {\textbf{Science Objectives Summary}}
 \end{tightcenter} 
-\textsf{I now put the significance section in a box, instead of a subsection, in order to highlight its importance as well as break up the word-dominated first few pages.
-}%
-\bigskip
+Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.:
+\begin{enumerate}[labelindent=2em ,labelwidth=1.5cm, labelsep*=0.2em, leftmargin =!]
+\item[Task 1: ] \emph{.}
+\item[Task 2: ] \emph{.}
+\item[Task 3: ] \emph{.}
+\end{enumerate}
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 \end{minipage}}
-%\medskip
-
-
-\subsection{Technical approach and methodology}
-
-
-\subsubsection{Introduction to Methodology}
-
-\subsubsection{Science Question 1}
-
-\subsubsection{Science Question 2}
-
-\subsubsection{Science Question 3}
+\end{center}
 
 
 
+\section{Technical}
 
 
-%\subsection{Relevance of proposed work}
+\subsection{Methodology, etc.}
+
+\subsection{Task 1}
+\begin{center} %%% Blue box start
+\fcolorbox{light-blue}{light-blue!30}{\begin{minipage}{0.95\textwidth}
+\textbf{Summary: } Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+
+\smallskip
+\textbf{Expected Results:} Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+\end{minipage}}
+\end{center} %%% Blue box end
 
 
-\subsection{Personnel Roles \& Work Plan}
+
+\subsection{Task 2}
+
+\subsection{Task 3}
+
+
+
+
+
+\section{Management}
+
+\subsection{Personnel Roles}
+
+\subsection{Work Plan}
 \begin{table}[h!]
 \centering
 \rowcolors{2}{white}{light-blue!30}
@@ -316,6 +338,39 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 \label{plan_table}
 \vspace{-0.75em}
 \end{table}
+
+\begin{table}[h!]
+\centering
+\small
+%\rowcolors{2}{white}{light-blue!30}
+\begin{tabular}{| c | L | c | c | c | c |} 
+%\toprule
+\hline
+\textbf{Task} & \textbf{Description} & \textbf{Soto} & \textbf{Lora} & \textbf{Rafkin} & \textbf{Total} \\ 
+\hline
+\rowcolor{light-blue!30}
+\textbf{1} & \textbf{Determine the types of local winds that form over \mbox{Titan's} seas.} & \textbf{552} & \textbf{239} & \textbf{271} & \textbf{1062} \\
+\small 1a & \small Create topography and shoreline maps & \small 40 & \small 0 & \small 0 & \small 40 \\
+\small 1b & \small Incorporate TAM radiative transfer into mtWRF & \small 160 & 4\small 0 & \small 0 & \small 200 \\
+\small 1c & \small Update the microphysics for Titan & \small 40 & \small 0 & \small 271 & \small 311  \\
+\small 1d & \small Simulate the local winds over the lakes and seas & \small 312 & \small 199 & \small 0  & \small 511\\
+\rowcolor{light-blue!30}
+\textbf{2} & \textbf{Investigate the evaporation rate of Titan's seas.} & \textbf{552} & \textbf{239} & \textbf{271} & \textbf{1062} \\
+\small 2a & \small Analyze the lake evaporation for the current epoch & \small 276 & \small 80 & \small 131 & \small 487 \\
+\small 2b & \small Analyze the lake evaporation for past epochs & \small 276 & \small 159 & \small 140 & \small 575 \\
+\rowcolor{light-blue!30}
+\textbf{3} & \textbf{Investigate how the mesoscale circulation triggers or forms clouds.} & \textbf{552} & \textbf{239} & \textbf{271} & \textbf{1062} \\
+\small 3a & \small Analyze the lake evaporation for the current epoch & \small 276 & \small 80 & \small 191 & \small 547 \\
+\small 3b & \small Analyze the lake evaporation for past epochs & \small 276 & \small 159 & \small 80 & \small 515 \\
+\hline
+%\bottomrule
+\end{tabular}
+\caption{\emph{\textbf{The work hours of funded investigators for each task described in Section~\ref{s:technical}.}}}
+\label{plan_table}
+\vspace{-0.75em}
+\end{table}
+
+
 
 \begin{figure}[tbh!]
 \begin{center}
@@ -384,11 +439,6 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 \subsection{Resources}
 
 
-\subsection{Impact and Relevance}
-\subsubsection{Impact of proposed work}\label{ssec:Impact}
-\subsubsection{Relevance to NASA Goals}\label{ssec:Relevance}
-
-
 \newpage
 \section{References}
 % Here's how I get references.
@@ -396,22 +446,86 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 
 \keepvalues
 \newpage
-\section{Biographical Sketches}
-From Section 2.3.7 of NASA's \emph{Guidebook for Proposers}, the Biographical Sketches  section is described as: ``The PI (and Co-PI) must include a biographical sketch (not to exceed two pages) that includes his/her professional experiences and positions and a bibliography of recent publications, especially those relevant to the proposed investigation. A one-page sketch for each Co-Investigator must also be included (Note: Any Co-I also serving in one of the three special Co-I categories defined in Section 1.4.2 may use the same two-page limit as for the PI). For the PI and any Co-Is who are required to provide Current and Pending Support information (ref. Section 2.3.8), the biographical sketch must include a description of scientific, technical and management performance on relevant prior research efforts. Those participants who will play critical management or technical roles in the proposed investigation should demonstrate that their qualifications, capabilities, and experience are appropriate to provide confidence that the proposed objectives will be achieved.''
+\section{Data Management Plan}
 
-\subsection{Principal Investigator}
+\begin{enumerate}
+\item \textbf{Overview of the data that will be produced by the proposed project:}
+%
+% (Describe project data needed to validate the scientific conclusions of
+% peer-reviewed publications - especially data underlying figures, maps,
+% and tables - as well as data that would enable future research and/or
+% the replication/reproduction of published results. If the project would
+% produce data that are exempted in the NASA Plan for Increasing Access to
+% the Results of Scientific Research, or no data that are scientifically
+% appropriate for public release, explain why.)
+%
+%        YOUR TEXT HERE
+%
+\item \textbf{Data types, volume, formats, and, where relevant, standards:}
+%
+% (Describe the major types of data produced by the project [e.g., images,
+% 1-dimensional spectra, multidimensional tables]; the approximate amount
+% of each type expected [e.g., 300 1-dimensional spectra, each of ~10kB];
+% the format of the data, [e.g., FITS image files, ASCII tables, Excel
+% spreadsheets]; and any applicable standards for the data or metadata content
+% or format [e.g., PDS4, EarthChem].)
+%
+%        YOUR TEXT HERE
+%
+\item \textbf{Schedule for data archiving and sharing:}
+%
+% (Provide an anticipated schedule or timeline for when project data would
+% be prepared for and deposited in the repository and when they would become
+% publicly available. A timeline relative to the publication of major
+% results is acceptable. Please use project years and quarters rather than
+% calendar years and quarters.)
+%
+%        YOUR TEXT HERE
+%
+\item \textbf{Intended repositories for archived data and mechanisms for public access and distribution:}
+%
+% (State where the project data are intended to be archived, and describe
+% the terms under which data would be made available by the repository. 
+% Repositories are expected to provide data without restriction or fees
+% other than the nominal costs of reproduction and shipping; i.e., they must
+% be publicly accessible with no paywall. If no appropriate repository exists,
+% please explain the situation and state what steps will be taken to provide
+% some degree of access.)
+%
+%        YOUR TEXT HERE
+%
+\item \textbf{Plan for enabling long-term preservation of the data:}
+%
+% (State how the intended repositories will preserve the data and provide
+% public access on a time-scale of one decade or longer.)
+%
+%        YOUR TEXT HERE
+%
+\item \textbf{Software archiving plan:}
+%
+% (Describe plans to archive any software required to enable future research
+% and/or the replication/reproduction of published results [see full
+% instructions in ROSES Appendix C.1]. Software should be made publicly
+% available when it is practical and feasible to do so and when there is
+% scientific utility in doing so. Any source code that is made publicly
+% available should be distributed, with appropriate documentation, via
+% GitHub, the PDS, or other appropriate community-recognized repository. 
+% If software would be developed but not archived, explain why.)
+%
+%        YOUR TEXT HERE
+%
+\item \textbf{Roles and responsibilities of team members for data management:}
+%
+% (Explain which team members would perform data archiving tasks and
+% indicate explicitly what those tasks would be.  If there are costs
+% associated with data archiving, those must appear – with explanation –
+% in the proposal budget.)
+%
+%        YOUR TEXT HERE
+%
+\end{enumerate}
 
-\newpage
-\subsection{Co-Investigator}
 
-\newpage
-\section{Current and Pending}
-From Section 2.3.8 of NASA's \emph{Guidebook for Proposers}, the Current and Pending  section is described as: ``Information must be provided for all ongoing and pending projects and proposals that involve the proposing PI. This information is also required for any Co-Is who are proposed to perform a significant share (>10 percent) of the proposed work.''
-
-\subsection{Principal Investigator}
-
-\newpage
-\subsection{Co-Investigator}
 
 \newpage
 \section{Table of Personnel and Work Effort}
@@ -423,6 +537,123 @@ Summary of work effort: This is a new fifth section of the proposal. [Note, loca
 \item[\textbf{Required: }] Planned work commitment (e.g., in fractions of a work year) to be funded by NASA
 \item[\textbf{Required: }] Planned work commitment (e.g., in fractions of a work year) that will not be funded by NASA, if any. Note: time commitment included here that is not funded by NASA is not considered cost sharing, as defined in 2 CFR � 215.23.
 \end{itemize}
+
+\label{sec:work}
+% 
+%	INSTRUCTIONS
+%
+% Include rows for all personnel, whether paid or unpaid, in all three tables and include placeholders 
+% for any postdocs, students, etc., who are not specifically identified by name in the proposal.  Add rows as
+% needed for large teams. List work efforts by proposal years only, not by fiscal years.  Because 
+% collaborators are by  definition unpaid, you may enter ``n/a'' in the paid FTE columns in the first table, 
+% ``Work Efforts to be funded by this proposal.''
+%
+% DO NOT include any explanatory text for this table.  Descriptions of roles and responsibilities belong 
+% in the Scientific, Technical, and Management section of the proposal (within the 15-page limit, 
+% unless otherwise stated).  
+%
+% All work efforts should be listed in ``Full Time Equivalents'', FTE (i.e., fractions of a person-work-year 
+% where one person-work-year is 2,080 person-hours).
+%
+% The first table is for the work effort that will be funded by this proposal.
+%
+%
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+\multicolumn{7}{|c|}{\textbf{Work efforts to be funded by this proposal}} \\
+\hline
+\multicolumn{1}{|l|}{}&\multicolumn{1}{|l|}{} & \multicolumn{5}{|c|}{\textbf{Committment (FTE)}} \\
+\cline{3-7}
+\bf{Name} & \bf{Role} & \bf{Y1} & \bf{Y2} & \bf{Y3} & \bf{Y4} & \bf{Total} \\
+\hline
+PI Name & PI & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+Co-I Name 1 & Co-I &  0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+$\vdots$ & $\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ \\
+Collaborator Name 1 & Collaborator & n/a & n/a & n/a & n/a & n/a \\
+$\vdots$ & $\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ \\
+Other Name & Other Role & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+\hline
+\multicolumn{2}{|l|}{\textbf{Total funded work effort:}} &  0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+\hline
+\end{tabular}
+\end{center}
+\label{tbl:fundedWork}
+\end{table}
+%
+%
+% The second table is for work effort contained in this proposal but not funded through the proposal.
+% If there is no work effort planned that would not be funded through the  proposal, then this table 
+% should still be included but filled with zeros.
+%
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+\multicolumn{7}{|c|}{\textbf{Work efforts proposed, but NOT funded by this proposal}} \\
+\hline
+\multicolumn{1}{|l|}{}&\multicolumn{1}{|l|}{} & \multicolumn{5}{|c|}{\textbf{Committment (FTE)}} \\
+\cline{3-7}
+\bf{Name} & \bf{Role} & \bf{Y1} & \bf{Y2} & \bf{Y3} & \bf{Y4} & \bf{Total} \\
+\hline
+PI Name & PI & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+Co-I Name 1 & Co-I &  0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+$\vdots$ & $\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ \\
+Collaborator Name 1 & Collaborator & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+$\vdots$ & $\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ \\
+Other Name & Other Role & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+\hline
+\multicolumn{2}{|l|}{\textbf{Total unfunded work effort:}} &  0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+\hline
+\end{tabular}
+\end{center}
+\label{tbl:unfundedWork}
+\end{table}
+%
+%
+% The third and final table is the sum of the first two tables.
+%
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|c|c|c|c|c|}
+\hline
+\multicolumn{7}{|c|}{\textbf{TOTAL Work Efforts (Funded $+$ Unfunded)}} \\
+\hline
+\multicolumn{1}{|l|}{}&\multicolumn{1}{|l|}{} & \multicolumn{5}{|c|}{\textbf{Committment (FTE)}} \\
+\cline{3-7}
+\bf{Name} & \bf{Role} & \bf{Y1} & \bf{Y2} & \bf{Y3} & \bf{Y4} & \bf{Total} \\
+\hline
+PI Name & PI & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+Co-I Name 1 & Co-I &  0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+$\vdots$ & $\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ \\
+Collaborator Name 1 & Collaborator & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+$\vdots$ & $\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ &$\vdots$ \\
+Other Name & Other Role & 0.00 & 0.00 & 0.00 & 0.00 & 0.00\\
+\hline
+\end{tabular}
+\end{center}
+\label{tbl:totalWork}
+\end{table}
+
+
+\newpage
+\section{Biographical Sketches}
+From Section 2.3.7 of NASA's \emph{Guidebook for Proposers}, the Biographical Sketches  section is described as: ``The PI (and Co-PI) must include a biographical sketch (not to exceed two pages) that includes his/her professional experiences and positions and a bibliography of recent publications, especially those relevant to the proposed investigation. A one-page sketch for each Co-Investigator must also be included (Note: Any Co-I also serving in one of the three special Co-I categories defined in Section 1.4.2 may use the same two-page limit as for the PI). For the PI and any Co-Is who are required to provide Current and Pending Support information (ref. Section 2.3.8), the biographical sketch must include a description of scientific, technical and management performance on relevant prior research efforts. Those participants who will play critical management or technical roles in the proposed investigation should demonstrate that their qualifications, capabilities, and experience are appropriate to provide confidence that the proposed objectives will be achieved.''
+
+\subsection{Principal Investigator}
+
+\newpage
+\subsection{Co-Investigator}
+
+%\newpage
+%\section{Current and Pending}
+%From Section 2.3.8 of NASA's \emph{Guidebook for Proposers}, the Current and Pending  section is described as: ``Information must be provided for all ongoing and pending projects and proposals that involve the proposing PI. This information is also required for any Co-Is who are proposed to perform a significant share (>10 percent) of the proposed work.''
+%
+%\subsection{Principal Investigator}
+%
+%\newpage
+%\subsection{Co-Investigator}
 
 
 %\newpage
@@ -437,10 +668,10 @@ Summary of work effort: This is a new fifth section of the proposal. [Note, loca
 %``The NSPIRES proposal management system allows for participants named on the Proposal Cover Page to acknowledge electronically a statement of commitment. Although we prefer all team members to confirm participation via NSPIRES, if that is not possible the inclusion of a statement of commitment in the proposal as set out in the example below may be permitted instead.''
 %\end{quote}
 
-\newpage
-\restorevalues
-\section{Budget Justification and Narrative}
-\textbf{Science Proposal Budget Notes and Institutional Contributions at Southwest Research Institute.} See Sections 2.3.10 to 2.3.13 of NASA's \emph{Guidebook for Proposers} for details on these portions of the proposal.
+%\newpage
+%\restorevalues
+%\section{Budget Justification and Narrative}
+%\textbf{Science Proposal Budget Notes and Institutional Contributions at Southwest Research Institute.} See Sections 2.3.10 to 2.3.13 of NASA's \emph{Guidebook for Proposers} for details on these portions of the proposal.
 
 % This line gets the space in TOC right.
 \addtocontents{toc}{\protect\vspace{12pt}}
